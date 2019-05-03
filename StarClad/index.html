@@ -1,0 +1,113 @@
+<html>
+    <head>
+    <title>StarClad</title>
+    <iframe width="0" height="0" src="https://www.youtuberepeater.com/watch?v=2vNKLh-2zZ0#gsc.tab=0 " frameborder="0" allowfullscreen></iframe>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script> 
+    <script src="https://unpkg.com/aframe-point-component/dist/aframe-point-component.min.js"></script> 
+    <script src="hygdata.js"></script>
+    </head>
+    
+    <body>
+            <a-scene>
+                    <a-entity light="type: ambient; color: #fff"></a-entity>
+
+                    <a-sphere position="80 0 0" perspective="true" radius="3.5"  id="neptune-too-big" src="neptune.jpg">
+                            <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+
+                    <a-sphere position="65 0 0" perspective="true" radius="4.0"  id="uranus-too-big" src="uranus.jpg">
+                            <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+
+
+                    <a-sphere position="50 0 0" perspective="true" radius="5.0"  id="saturn-too-big" src="saturn.jpg">
+                            <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+
+                    <a-sphere position="30 0 0" perspective="true" radius="6.0"  id="jupiter-too-big" src="jupiter.jpg">
+                            <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+
+                    <a-sphere position="17.5 0 0" perspective="true" radius="1.375"  id="mars-too-big" src="mars.png">
+                            <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+
+                    <a-sphere position="7.5 0 0" perspective="true" radius="2.0" id="earth-too-big" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_lights_2048.png">
+                        <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+
+                    <a-sphere position="11 1.5 0" perspective="true" radius=".5" id="moon-too-big" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/moon_1024.jpg">
+                        <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+                    <a-sphere position="-37.5 0 0" perspective="true" radius="15 s"  id="sun-too-big" src="sun.jpg">
+                            <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+
+                    <a-sphere position="-2.5 0 0" perspective="true" radius="2.5"  id="venus-too-big" src="venus.jpg">
+                            <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+
+                    <a-sphere position="-10 0 0" perspective="true" radius="1.25"  id="mercury-too-big" src="mercury.jpg">
+                            <a-animation attribute="rotation"
+                            dur="10000"
+                            to="0 360 0"
+                            repeat="indifinite">             
+                        </a-animation>
+                    </a-sphere>
+
+                    <a-point position="0 0 0" color="#fff" size="0.1" perspective="true"></a-point>
+                    <a-sky color="#000"></a-sky>
+                    <a-entity class="camwrap" position="50 0 0" rotation="90 180 180">
+                    </a-entity>
+                </a-scene>
+                <script>
+                        const mul = x => 0.07 * x
+                        const points = document.querySelector("a-point")
+                        const cam = document.querySelector("a-camera")
+                        setTimeout(function() {
+                            cam.components["wasd-controls"].keys["KeyW"] = true;
+                        }, 5000)
+                        setTimeout(function() {
+                            points.components.point.setPoints(
+                                hygdata
+                                .map(star => [mul(star.x), mul(star.y), mul(star.z)]))
+                        }, 1000)
+                    </script>
+    </body>
+</html>
